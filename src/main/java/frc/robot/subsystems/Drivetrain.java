@@ -4,7 +4,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -14,10 +14,11 @@ import frc.robot.Constants;
 public class Drivetrain extends SubsystemBase {
 
   //change speed controller types as necessary
-  Jaguar leftFrontMotor;
-  Jaguar leftRearMotor;
-  Jaguar rightFrontMotor;
-  Jaguar rightRearMotor;
+  
+  PWMVictorSPX leftFrontMotor;
+  PWMVictorSPX leftRearMotor;
+  PWMVictorSPX rightFrontMotor;
+  PWMVictorSPX rightRearMotor;
 
   SpeedControllerGroup driveMotorsLeft;
   SpeedControllerGroup driveMotorsRight;
@@ -27,13 +28,13 @@ public class Drivetrain extends SubsystemBase {
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
-    leftFrontMotor = new Jaguar(Constants.LEFT_FRONT_MOTOR);
+    leftFrontMotor = new PWMVictorSPX(Constants.LEFT_FRONT_MOTOR);
     leftFrontMotor.setInverted(false);
-    leftRearMotor = new Jaguar(Constants.LEFT_REAR_MOTOR);
+    leftRearMotor = new PWMVictorSPX(Constants.LEFT_REAR_MOTOR);
     leftRearMotor.setInverted(false);
-    rightFrontMotor = new Jaguar(Constants.RIGHT_FRONT_MOTOR);
+    rightFrontMotor = new PWMVictorSPX(Constants.RIGHT_FRONT_MOTOR);
     rightFrontMotor.setInverted(false);
-    rightRearMotor = new Jaguar(Constants.RIGHT_REAR_MOTOR);
+    rightRearMotor = new PWMVictorSPX(Constants.RIGHT_REAR_MOTOR);
     rightRearMotor.setInverted(false);
 
     driveMotorsLeft = new SpeedControllerGroup(leftFrontMotor, leftRearMotor);
